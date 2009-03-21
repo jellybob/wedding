@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block title %}Home{% endblock %}
+{% block selected %}venue{% endblock %}
+{% block head %}
+
+{% endblock %}
 
 {% block content %}
 	<h2>The Ceremony</h2>
@@ -11,4 +15,8 @@
 	<p>This is split into two parts - at 1pm there will be a site down meal for our family and
 	   the wedding party. Sadly we can't invite everyone to this, but at 2:30pm there will be a
 	   buffet meal, music, dancing, and general festivities.</p>
+	
+	<div id="map">
+		Google Map
+	</div>
 {% endblock %}

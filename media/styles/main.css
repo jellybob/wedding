@@ -1,0 +1,101 @@
+html, body {
+    background-color: #2a353e;
+    font-family: sans-serif;
+}
+
+div#container {
+    background-color: #e4ebe0;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+}
+
+/** Header */
+div#header {
+    text-align: right;
+}
+
+h1, h2, h3, h4, h5, h6, p#date {
+    font-family: "Baskerville", serif;
+    color: #25233e;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+p#date {
+    font-size: 1.2em;
+    margin-top: -0.3em;
+}
+
+ul#navigation {
+    font-family: "Baskerville", serif;
+    font-size: 1.6em;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+ul#navigation li {
+    display: inline;
+    margin-left: 0.5em;
+    color: #363f27;
+}
+
+ul#navigation li a {
+    text-decoration: none;
+    color: inherit;
+}
+/* End Header */
+
+/** Menu IDs */
+body#venue li#navigation-venue,
+body#rsvp li#navigation-rsvp,
+body#gift-list li#navigation-gift-list { 
+    font-weight: bold; 
+}
+
+/** Content */
+h2 {
+    font-size: 1.7em;
+    font-weight: bold;
+    margin-top: 0.8em;
+}
+
+p {
+    margin-top: 0.5em;
+    line-height: 1.3em;
+}
+
+/** Footer */
+div#footer {
+    text-align: center;
+    font-size: 0.8em;
+    margin-top: 1em;
+    color: #999;
+}
+
+div#footer p {
+    margin-top: 0.5em;
+}
+
+div#footer a {
+    color: #999;
+}
+/* End Footer */
+
+/** Home page */
+div#map {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ccc;
+    font-size: 3em;
+    text-align: center;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    width: 80%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

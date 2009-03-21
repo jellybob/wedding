@@ -7,14 +7,34 @@
 	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.0.0pr2/build/cssreset/reset-min.css">
 	<link rel="stylesheet" href="/site_media/styles/main.css" type="text/css" media="screen" charset="utf-8">
 	
-	<script src="http://www.google.com/jsapi"></script>
+	<script src="http://www.google.com/jsapi?key={{ settings.GOOGLE_API_KEY }}"></script>
 	<script>google.load("jquery", "1.3.2");</script>
+	{% block head %}{% endblock %}
 	
 	<title>Jon &amp; Laura's Wedding | {% block title %}Untitled Page{% endblock %}</title>
 </head>
 
-<body>
-	{% block content %}
-	{% endblock %}
+<body id="{% block selected %}{% endblock %}">
+	<div id="container">
+		<div id="header">
+			<h1>Jon &amp; Laura</h1>
+			<p id="date">21<sup>st</sup> August 2009</p>
+			<ul id="navigation">
+				<li id="navigation-venue"><a href="#">Venue</a></li>
+				<li id="navigation-rsvp"><a href="#">RSVP</a></li>
+				<li id="navigation-gift-list"><a href="#">Gift List</a></li>
+			</ul>
+		</div>
+		
+		<div id="content">
+			{% block content %}
+			{% endblock %}
+		</div>
+		
+		<div id="footer">
+			<p>Content and design copyright &copy; Jon Wood, 2009</p>
+			<p>Source available under the BSD license at <a href="http://github.com/jellybob/wedding/">GitHub</a>.</p>
+		</div>
+	</div>
 </body>
 </html>

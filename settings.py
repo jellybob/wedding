@@ -78,3 +78,5 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'wedding.home',
 )
+
+GOOGLE_API_KEY = 'ABQIAAAAFGHbizpn9jfT8F79BhK2CRQCULP4XOMyhPd8d_NrQQEO8sT8XBQKq06gRh92oxrursf1xWWQVOG0pg'
