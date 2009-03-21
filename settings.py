@@ -79,4 +79,5 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'wedding.home',
+    'wedding.guests',
 )
