@@ -16,6 +16,14 @@ div#header {
     text-align: right;
 }
 
+div#title {
+    background-image: url('../us.png');
+    background-repeat: no-repeat;
+    background-position: 0 4px;
+    float: right;
+    padding-left: 70px;
+}
+
 h1, h2, h3, h4, h5, h6, p#date {
     font-family: "Baskerville", serif;
     color: #25233e;
@@ -36,6 +44,7 @@ ul#navigation {
     font-size: 1.6em;
     margin-top: 0.5em;
     margin-bottom: 1em;
+    clear: both;
 }
 
 ul#navigation li {
