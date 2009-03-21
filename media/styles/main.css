@@ -68,6 +68,7 @@ p {
     margin-top: 0.5em;
     line-height: 1.3em;
 }
+/* End Content */
 
 /** Footer */
 div#footer {
@@ -86,16 +87,19 @@ div#footer a {
 }
 /* End Footer */
 
-/** Home page */
+/** Home Page */
 div#map {
+    width: 500px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #ccc;
-    font-size: 3em;
-    text-align: center;
-    padding-top: 3em;
-    padding-bottom: 3em;
-    width: 80%;
     margin-top: 1em;
-    margin-bottom: 1em;
 }
+
+div#map p,
+div#map p a {
+    text-align: right;
+    color: #25233e;
+    font-size: 1em;
+    margin-top: 0.5em;
+}
+/* End Home Page */
