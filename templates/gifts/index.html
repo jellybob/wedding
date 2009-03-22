@@ -12,31 +12,33 @@
 	   while we're on honeymoon!) if that's a problem for you, give us a shout, and we'll tell you how to avoid it.</p>
 	<p>And finally, don't feel obliged to get anything. We'll still love you if you don't!</p>
 	
-	<div class="gift_clearer"></div>
-	{% for gift in gifts %}
-		<div class="gift {% if gift.reserved %}reserved-gift{% endif %}" id="gift-{{ gift.id }}">
-			<div class="picture">
-				<div class="image">
-					{% if gift.reserved %}
-						<img src="{{ gift.image.path|bw_thumbnail }}" />
-					{% else %}
-						<img src="{{ gift.image.path|thumbnail }}" />
-					{% endif %}
+	{% for category in categories %}
+		<h3>{{ category.name }}</h3>
+		{% for gift in category.gift_set.all %}
+			<div class="gift {% if gift.reserved %}reserved-gift{% endif %}" id="gift-{{ gift.id }}">
+				<div class="picture">
+					<div class="image">
+						{% if gift.reserved %}
+							<img src="{{ gift.image.path|bw_thumbnail }}" />
+						{% else %}
+							<img src="{{ gift.image.path|thumbnail }}" />
+						{% endif %}
+					</div>
+					<p>{{ gift.price_in_pounds }}</p>
 				</div>
-				<p>{{ gift.price_in_pounds }}</p>
+				<h4><a href="{{ gift.address }}" target="_blank">{{ gift.name }}</a></h4>
+				<p>{{ gift.description }}</p>
+				{% if gift.reserved %}
+					<img class="reserve" src="/media/images/reserved.png" />
+				{% else %}
+					<form method="post" action="/gifts/reserve">
+						<input type="hidden" name="slug" value="{{ gift.slug }}">
+						<input type="image" src="/media/images/reserve.png" alt="Reserve"
+							   name="reserve" id="reserve" class="reserve" />
+					</form>
+				{% endif %}
 			</div>
-			<h3><a href="{{ gift.address }}" target="_blank">{{ gift.name }}</a></h3>
-			<p>{{ gift.description }}</p>
-			{% if gift.reserved %}
-				<img class="reserve" src="/media/images/reserved.png" />
-			{% else %}
-				<form method="post" action="/gifts/reserve">
-					<input type="hidden" name="slug" value="{{ gift.slug }}">
-					<input type="image" src="/media/images/reserve.png" alt="Reserve"
-						   name="reserve" id="reserve" class="reserve" />
-				</form>
-			{% endif %}
-		</div>
-		<div class="gift_clearer"></div>
+			<div class="gift_clearer"></div>
+		{% endfor %}
 	{% endfor %}
 {% endblock %}

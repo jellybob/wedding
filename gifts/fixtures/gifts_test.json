@@ -1,6 +1,14 @@
 [
     {
         "pk": 1,
+        "model": "gifts.category",
+        "fields": {
+            "name": "Gadgets"
+        }
+    },
+    
+    {
+        "pk": 1,
         "model": "gifts.gift",
         "fields": {
             "reserved": false,
@@ -9,7 +17,8 @@
             "slug": "swiss-army-knife",
             "address": "http://www.amazon.co.uk/Wenger-Swiss-Army-Knife-85mm/dp/B0015Y9V8W/",
             "image": "gifts/swiss-army-knife/411xAZRO35L._SL160_AA160_.jpg",
-            "description": "A stupidly large swiss army knife, which will allow all our DIY to be done without having to mess around with awkward tool boxes."
+            "description": "A stupidly large swiss army knife, which will allow all our DIY to be done without having to mess around with awkward tool boxes.",
+            "category": 1
         }
     }
 ]

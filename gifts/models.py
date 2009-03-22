@@ -14,6 +14,7 @@ class Gift(models.Model):
     address = models.URLField(help_text = "The web address for this gift")
     image = models.ImageField(upload_to = generate_gift_path)
     slug = models.SlugField(help_text = "A version of the name used for image storage. Leave it blank to generate one.")
+    category = models.ForeignKey('Category')
     
     def price_in_pounds(self, include_symbol=True):
         if (self.price == None):
@@ -31,3 +32,12 @@ class Gift(models.Model):
         
     class Meta:
         ordering = ["name"]
+
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    
+    def __unicode__(self):
+        return self.name
+        
+    class Meta:
+        verbose_name_plural = "categories"

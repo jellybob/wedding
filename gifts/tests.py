@@ -28,7 +28,7 @@ class GiftViewsTest(TestCase):
         
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'gifts/index.html')
-        self.assertNotEquals(response.context[0]['gifts'], [gift])
+        self.assertNotEquals(response.context[0]['categories'], [category])
     
     def testReserve(self):
         gift = Gift.objects.get(pk=1)

@@ -1,11 +1,11 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from wedding.gifts.models import Gift
+from wedding.gifts.models import Gift, Category
 
 def index(request):
-    gifts = Gift.objects.all()
-    return render_to_response('gifts/index.html', { 'gifts': gifts })
+    categories = Category.objects.all()
+    return render_to_response('gifts/index.html', { 'categories': categories })
     
 def reserve(request):
     try:

@@ -23,7 +23,7 @@ div#title {
     padding-left: 70px;
 }
 
-h1, h2, p#date {
+h1, h2, h3, p#date {
     font-family: "Baskerville", serif;
     color: #25233e;
 }
@@ -35,8 +35,15 @@ h1 {
 
 h3 {
     font-size: 1.7em;
+    margin-top: 1em;
     font-weight: bold;
 }
+
+h4 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
 p#date {
     font-size: 1.2em;
     margin-top: -0.3em;
@@ -200,7 +207,7 @@ div.reserved-gift div.picture div.image {
     background-color: #343434;
 }
 
-div.gift h3 a {
+div.gift h4 a {
     color: black;
     text-decoration: none;
 }
