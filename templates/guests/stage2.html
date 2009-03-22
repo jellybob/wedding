@@ -3,31 +3,34 @@
 {% block selected %}rsvp{% endblock %}
 
 {% block content %}
-	<h2>Hi {{ guest.first_name }}!</h2>
-	<p>The next thing you need to do is tick the box for each part you're going to be going to
-	   below, and then you're done.</p>
+	<h2>Hi {{ group.name }}!</h2>
+	<p>To finish, just tell us which parts you're going to be attending.</p>
 	
 	<div class="form_block">
 		<form action="/rsvp/save" method="post">
-			<input type="hidden" name="email" value="{{ guest.email }}" />
+			<input type="hidden" name="email" value="{{ group.email }}" />
 			
-			<div class="checkbox">
-				<input type="hidden" name="ceremony" value="0" />
-				<input type="checkbox" checked="checked" id="ceremony" name="ceremony" value="1" />
-				<label for="ceremony">Ceremony</label>
-			</div>
-			{% if guest.invite_to_meal %}
-			<div class="checkbox">
-				<input type="hidden" name="meal" value="0" />
-				<input type="checkbox" checked="checked" id="meal" name="meal" value="1" />
-				<label for="meal">Meal</label>
-			</div>
-			{% endif %}
-			<div class="checkbox">
-				<input type="hidden" name="reception" value="0" />
-				<input type="checkbox" checked="checked" id="reception" name="reception" value="1" />
-				<label for="reception">Reception</label>
-			</div>
+			{% for guest in guests %}
+				<h4>{{ guest }}</h4>
+				<div class="checkbox">
+					<input type="hidden" name="{{ guest.id }}_ceremony" value="0" />
+					<input type="checkbox" checked="checked" id="{{ guest.id }}_ceremony" name="{{ guest.id }}_ceremony" value="1" />
+					<label for="{{ guest.id }}_ceremony">Ceremony</label>
+				</div>
+				{% if group.invite_to_meal %}
+					<div class="checkbox">
+						<input type="hidden" name="{{ guest.id }}_meal" value="0" />
+						<input type="checkbox" checked="checked" id="{{ guest.id }}_meal" name="{{ guest.id }}_meal" value="1" />
+						<label for="{{ guest.id }}_meal">Meal</label>
+					</div>
+				{% endif %}
+				<div class="checkbox">
+					<input type="hidden" name="{{ guest.id }}_reception" value="0" />
+					<input type="checkbox" checked="checked" id="{{ guest.id }}_reception" name="{{ guest.id }}_reception" value="1" />
+					<label for="{{ guest.id }}_reception">Reception</label>
+				</div>
+				<div class="guest_seperator"></div>
+			{% endfor %}
 			
 			<input type="image" name="submit" class="image" id="stage2"
 				   src="/media/images/rsvp_button.png" alt="RSVP" width="86" height="36"/>

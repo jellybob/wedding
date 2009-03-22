@@ -140,11 +140,6 @@ input.image {
     margin-left: auto;
 }
 
-input.image#stage2 {
-    float: right;
-    margin-top: 0;
-}
-
 p.error {
     font-weight: bold;
     margin-bottom: 1em;
@@ -175,6 +170,15 @@ div.form_block {
     background-color: #86acc2;
     margin-top: 1em;
     padding: 1em;
+}
+
+div.form_block h4 {
+    clear: both;
+}
+
+div.guest_seperator {
+    clear: both;
+    height: 1em;
 }
 /* End RSVP */
 
