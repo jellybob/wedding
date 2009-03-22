@@ -14,3 +14,7 @@ class RsvpTest(TestCase):
     def testPriceConversionToPoundsAndPenceWithSubOnePound(self):
         g = Gift(price=99)
         self.assertEquals("£0.99", g.price_in_pounds())
+        
+    def testImagePathGeneration(self):
+        g = Gift(slug='something-nice', name="Something Nice")
+        self.assertEquals("gifts/something-nice/example.png", Gift.generate_gift_path(g, "example.png"))
