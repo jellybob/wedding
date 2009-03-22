@@ -22,5 +22,24 @@
 			"attending_reception": null,
 			"group": 1
 		}
+	},
+	
+	{
+	    "model": "guests.guest",
+	    "pk": 2,
+	    "fields": {
+	        "first_name": "Bob",
+	        "last_name": "Hoskins",
+	        "email": "bob@example.org",
+	        "phone": "",
+	        "address": "",
+	        "invite_to_meal": false,
+	        "save_the_date_sent": true,
+	        "invite_sent": true,
+	        "attending_ceremony": null,
+	        "attending_meal": null,
+	        "attending_reception": null,
+	        "group": 1
+	    }
 	}
 ]
