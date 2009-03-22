@@ -1,5 +1,5 @@
 from django.test import TestCase
-from guests.models import Guest, GuestGroup
+from guests.models import Guest
 
 class RsvpTest(TestCase):
     fixtures = ['rsvp_test.json']
