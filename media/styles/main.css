@@ -104,6 +104,17 @@ label {
     margin-bottom: 0.5em;
 }
 
+div.checkbox {
+    float: left;
+    padding-top: 0.6em;
+    margin-right: 1.5em;
+}
+
+div.checkbox label {
+    display: inline;
+    margin-left: 0.5em;
+}
+
 input.text {
     display: block;
     width: 98%;
@@ -117,6 +128,16 @@ input.image {
     display: block;
     margin-top: 1em;
     margin-left: auto;
+}
+
+input.image#stage2 {
+    float: right;
+    margin-top: 0;
+}
+
+p.error {
+    font-weight: bold;
+    margin-bottom: 1em;
 }
 /* End Forms */
 
