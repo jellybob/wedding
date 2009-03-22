@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 class Gift(models.Model):
     """A gift that we'd like to be given."""
