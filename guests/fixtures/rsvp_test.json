@@ -1,0 +1,26 @@
+[
+    {
+        "model": "guests.guestgroup",
+        "pk": 1,
+        "fields": { "name": "Wedding Party" }
+    },
+    
+	{
+		"model": "guests.guest",
+		"pk": 1,
+		"fields": {
+			"first_name": "Jon",
+			"last_name": "Wood",
+			"email": "jon@blankpad.net",
+			"phone": "",
+			"address": "",
+			"invite_to_meal": true,
+			"save_the_date_sent": true,
+			"invite_sent": true,
+			"attending_ceremony": null,
+			"attending_meal": null,
+			"attending_reception": null,
+			"group": 1
+		}
+	}
+]

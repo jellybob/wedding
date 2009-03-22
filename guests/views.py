@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from wedding.guests.models import Guest
 
 def index(request):
-    return render_to_response('guests/index.html')
+    return render_to_response('guests/index.html', { 'error': False })
     
 def stage2(request):
     try:
