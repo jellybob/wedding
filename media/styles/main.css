@@ -205,6 +205,12 @@ div.gift h3 a {
     text-decoration: none;
 }
 
+div.gift img.reserve,
+div.gift input.reserve {
+    float: right;
+    margin-top: 0.7em;
+}
+
 div.gift_clearer {
     clear: both;
     height: 1em;

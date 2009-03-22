@@ -29,7 +29,11 @@ class GiftViewsTest(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'gifts/index.html')
         self.assertNotEquals(response.context[0]['gifts'], [gift])
-        self.assertContains(response, gift.name, 1)
-        self.assertContains(response, gift.image, 1)
-        self.assertContains(response, gift.description, 1)
-        self.assertContains(response, gift.address, 1)
+    
+    def testReserve(self):
+        gift = Gift.objects.get(pk=1)
+        response = self.client.post('/gifts/reserve', { 'slug': gift.slug })
+        gift = Gift.objects.get(pk=1)
+        
+        self.assertRedirects(response, '/gifts/#gift-%s' % gift.id)
+        self.assertEquals(gift.reserved, True)
