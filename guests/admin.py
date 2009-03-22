@@ -1,27 +1,24 @@
 from django.contrib import admin
-from wedding.guests.models import Guest, GuestGroup
+from wedding.guests.models import Guest, Group, Category
 
-class GuestAdmin(admin.ModelAdmin):
+class GuestInline(admin.TabularInline):
+    model = Guest
+    
+class GroupAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
-            'fields': (('first_name', 'last_name'), 
-                       'email', 
-                       'phone', 
-                       'address', 
-                       'group', 
-                       ('invite_to_meal', 'save_the_date_sent', 'invite_sent'),
-                       ('attending_ceremony', 'attending_meal', 'attending_reception'))
+            'fields': ('name', 'email', 'phone', 'address', 'category', 'invite_to_meal', 
+                       ('save_the_date_sent', 'invite_sent', 'rsvp_received'))
         }),
     )
     
-    list_display = ('first_name', 'last_name', 'group', 'save_the_date_sent', 'invite_sent', 'invite_to_meal',
-                    'attending_ceremony', 'attending_meal', 'attending_reception')
-    list_filter = ('group', 'save_the_date_sent', 'invite_sent', 'invite_to_meal', 
-                   'attending_ceremony', 'attending_meal', 'attending_reception')
-    ordering = ['last_name']
+    inlines = [GuestInline]
+    
+    list_display = ('name', 'email', 'category', 'invite_to_meal', 'save_the_date_sent', 'invite_sent', 'rsvp_received')
+    list_filter = ('category', 'invite_to_meal', 'save_the_date_sent', 'invite_sent', 'rsvp_received')
     search_fields = ['first_name', 'last_name', 'email', 'phone', 'address']
-admin.site.register(Guest, GuestAdmin)
+admin.site.register(Group, GroupAdmin)
 
-class GuestGroupAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     pass
-admin.site.register(GuestGroup, GuestGroupAdmin)
+admin.site.register(Category, CategoryAdmin)
