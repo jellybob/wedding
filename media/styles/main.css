@@ -96,6 +96,30 @@ div#footer a {
 }
 /* End Footer */
 
+/** Forms */
+label {
+    display: block;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+input.text {
+    display: block;
+    width: 98%;
+    padding: 0.2em;
+    background-color: #415261;
+    border: 1px solid #000;
+    color: #dfdfdf;
+}
+
+input.image {
+    display: block;
+    margin-top: 1em;
+    margin-left: auto;
+}
+/* End Forms */
+
 /** Home Page */
 div#map {
     width: 500px;
@@ -112,3 +136,11 @@ div#map p a {
     margin-top: 0.5em;
 }
 /* End Home Page */
+
+/** RSVP */
+div.form_block {
+    background-color: #86acc2;
+    margin-top: 1em;
+    padding: 1em;
+}
+/* End RSVP */
