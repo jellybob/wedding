@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}RSVP{% endblock %}
+{% block selected %}rsvp{% endblock %}
+
+{% block content %}
+	<p>Hi {{ guest.first_name }}!</p>
+	<p>The next thing you need to do is tick the box for each part you're going to be going to
+	   below, and then you're done.</p>
+	
+	<div class="form_block">
+		<form action="/rsvp/save" method="post">
+			<input type="hidden" name="email" value="{{ guest.email }}" />
+			
+			<div class="checkbox">
+				<input type="checkbox" checked="checked" id="ceremony" name="ceremony" value="1" />
+				<label for="ceremony">Ceremony</label>
+			</div>
+			{% if guest.invite_to_meal %}
+			<div class="checkbox">
+				<input type="checkbox" checked="checked" id="meal" name="meal" value="1" />
+				<label for="meal">Meal</label>
+			</div>
+			{% endif %}
+			<div class="checkbox">
+				<input type="checkbox" checked="checked" id="reception" name="reception" value="1" />
+				<label for="reception">Reception</label>
+			</div>
+			
+			<input type="image" name="submit" class="image" id="stage2"
+				   src="/site_media/rsvp_button.png" alt="RSVP" width="86" height="36"/>
+		</form>
+	</div>
+{% endblock %}
