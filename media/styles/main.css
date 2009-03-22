@@ -17,7 +17,6 @@ div#header {
 }
 
 div#title {
-    background-image: url('../us.png');
     background-repeat: no-repeat;
     background-position: 0 4px;
     float: right;
@@ -142,6 +141,7 @@ p.error {
 /* End Forms */
 
 /** Home Page */
+body#venue div#title { background-image: url('../images/us.png'); }
 div#map {
     width: 500px;
     margin-left: auto;
@@ -159,6 +159,7 @@ div#map p a {
 /* End Home Page */
 
 /** RSVP */
+body#rsvp div#title { background-image: url('../images/rsvp.png'); }
 div.form_block {
     background-color: #86acc2;
     margin-top: 1em;
