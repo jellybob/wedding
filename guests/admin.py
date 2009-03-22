@@ -4,15 +4,13 @@ from wedding.guests.models import Guest, GuestGroup
 class GuestAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
-            'fields': (('first_name', 'last_name'), 'email', 'phone', 'address', 'group', 'invite_to_meal')
-        }),
-        ('RSVP', {
-            'fields': ('attending_ceremony', 'attending_meal', 'attending_reception'),
-            'classes': ['collapse']
-        }),
-        ('Mails Sent', {
-            'fields': ('save_the_date_sent', 'invite_sent'),
-            'classes': ['collapse']
+            'fields': (('first_name', 'last_name'), 
+                       'email', 
+                       'phone', 
+                       'address', 
+                       'group', 
+                       ('invite_to_meal', 'save_the_date_sent', 'invite_sent'),
+                       ('attending_ceremony', 'attending_meal', 'attending_reception'))
         }),
     )
     
@@ -21,6 +19,7 @@ class GuestAdmin(admin.ModelAdmin):
     list_filter = ('group', 'save_the_date_sent', 'invite_sent', 'invite_to_meal', 
                    'attending_ceremony', 'attending_meal', 'attending_reception')
     ordering = ['last_name']
+    search_fields = ['first_name', 'last_name', 'email', 'phone', 'address']
 admin.site.register(Guest, GuestAdmin)
 
 class GuestGroupAdmin(admin.ModelAdmin):

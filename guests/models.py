@@ -20,7 +20,7 @@ class Guest(models.Model):
 
 class GuestGroup(models.Model):
     """A group of guests."""
-    group_name = models.CharField(max_length=40)
+    name = models.CharField(max_length=40)
     
     def __unicode__(self):
-        return self.group_name
+        return self.name
