@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Gifts{% endblock %}
+{% block selected %}gifts{% endblock %}
+
+{% block content %}
+	<h2>Gift List</h2>
+	<p>This is our gift list. If you see something you might like to buy for us, then you can click on it's name to
+	   be taken to the site which is selling it. If you still like what you see click the "Reserve" button. Items
+	   shown in grey have already been reserved.</p>
+	<p>We get a small commission for anything you buy from Amazon through this list (maybe even enough to buy a meal out
+	   while we're on honeymoon!) if that's a problem for you, give us a shout, and we'll tell you to avoid it.</p>
+	<p>And finally, don't feel obliged to get anything. We'll still love you if you don't!</p>
+	
+	{% for gift in gifts %}
+		<div class="gift" id="gift-{{ gift.id }}">
+			<div class="picture">
+				<div class="image">
+					<img src="/media/{{ gift.image }}" />
+				</div>
+				<p>{{ gift.price_in_pounds }}</p>
+			</div>
+			<h3><a href="{{ gift.address }}" target="_blank">{{ gift.name }}</a></h3>
+			<p>{{ gift.description }}</p>
+			<img class="reserve" src="/media/images/reserve.png" />
+		</div>
+		<div class="gift_clearer"></div>
+	{% endfor %}
+{% endblock %}

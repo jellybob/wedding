@@ -23,7 +23,7 @@ div#title {
     padding-left: 70px;
 }
 
-h1, h2, h3, h4, h5, h6, p#date {
+h1, h2, p#date {
     font-family: "Baskerville", serif;
     color: #25233e;
 }
@@ -33,6 +33,10 @@ h1 {
     font-weight: bold;
 }
 
+h3 {
+    font-size: 1.7em;
+    font-weight: bold;
+}
 p#date {
     font-size: 1.2em;
     margin-top: -0.3em;
@@ -61,7 +65,7 @@ ul#navigation li a {
 /** Menu IDs */
 body#venue li#navigation-venue,
 body#rsvp li#navigation-rsvp,
-body#gift-list li#navigation-gift-list { 
+body#gifts li#navigation-gift-list { 
     font-weight: bold; 
 }
 
@@ -166,3 +170,35 @@ div.form_block {
     padding: 1em;
 }
 /* End RSVP */
+
+/** Gift List */
+body#gifts div#title { background-image: url('../images/gifts.png'); }
+div.gift {
+    background-color: #86acc2;
+    margin-top: 1em;
+    padding: 1em;
+}
+
+div.gift div.picture {
+    float: left;
+    text-align: center;
+    margin-top: 0.3em;
+    margin-right: 1em;
+    font-size: 1.5em;
+}
+
+div.gift div.picture div.image {
+    padding: 0.3em;
+    background-color: #2a353e;
+}
+
+div.gift h3 a {
+    color: black;
+    text-decoration: none;
+}
+
+div.gift_clearer {
+    clear: both;
+    height: 1em;
+}
+/* End Gift List */

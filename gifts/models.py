@@ -15,7 +15,7 @@ class Gift(models.Model):
     image = models.FileField(upload_to = generate_gift_path)
     slug = models.SlugField(help_text = "A version of the name used for image storage. Leave it blank to generate one.")
     
-    def price_in_pounds(self):
+    def price_in_pounds(self, include_symbol=True):
         if (self.price == None):
             return None
             

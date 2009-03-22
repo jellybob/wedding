@@ -7,6 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^$', include('wedding.home.urls')),
     (r'^rsvp/', include('wedding.guests.urls')),
+    (r'^gifts/', include('wedding.gifts.urls')),
     
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/(.*)', admin.site.root),
