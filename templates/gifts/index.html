@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load image_filters %}
 {% block title %}Gifts{% endblock %}
 {% block selected %}gifts{% endblock %}
 
@@ -8,14 +9,19 @@
 	   be taken to the site which is selling it. If you still like what you see click the "Reserve" button. Items
 	   shown in grey have already been reserved.</p>
 	<p>We get a small commission for anything you buy from Amazon through this list (maybe even enough to buy a meal out
-	   while we're on honeymoon!) if that's a problem for you, give us a shout, and we'll tell you to avoid it.</p>
+	   while we're on honeymoon!) if that's a problem for you, give us a shout, and we'll tell you how to avoid it.</p>
 	<p>And finally, don't feel obliged to get anything. We'll still love you if you don't!</p>
 	
+	<div class="gift_clearer"></div>
 	{% for gift in gifts %}
-		<div class="gift" id="gift-{{ gift.id }}">
+		<div class="gift {% if gift.reserved %}reserved-gift{% endif %}" id="gift-{{ gift.id }}">
 			<div class="picture">
 				<div class="image">
-					<img src="/media/{{ gift.image }}" />
+					{% if gift.reserved %}
+						<img src="{{ gift.image.path|bw_thumbnail }}" />
+					{% else %}
+						<img src="{{ gift.image.path|thumbnail }}" />
+					{% endif %}
 				</div>
 				<p>{{ gift.price_in_pounds }}</p>
 			</div>

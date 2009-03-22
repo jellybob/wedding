@@ -12,7 +12,7 @@ class Gift(models.Model):
     price = models.IntegerField(help_text = "In pennies, not pounds. &pound;1.99 should be entered as 199")
     reserved = models.BooleanField()
     address = models.URLField(help_text = "The web address for this gift")
-    image = models.FileField(upload_to = generate_gift_path)
+    image = models.ImageField(upload_to = generate_gift_path)
     slug = models.SlugField(help_text = "A version of the name used for image storage. Leave it blank to generate one.")
     
     def price_in_pounds(self, include_symbol=True):
