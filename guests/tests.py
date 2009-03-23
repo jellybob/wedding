@@ -1,11 +1,12 @@
 from django.test import TestCase
-from guests.models import Guest
+from guests.models import Guest, Group, Category
 
-class RsvpTest(TestCase):
+class GuestViewsTest(TestCase):
     fixtures = ['rsvp_test.json']
     
-    def loadGuest(self, id):
-        self.guest = Guest.objects.get(pk=id)
+    def loadGroup(self, id):
+        self.group = Group.objects.get(pk=id)
+        
     def assertEmailWasInvalid(self, response):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'guests/index.html')
@@ -17,11 +18,12 @@ class RsvpTest(TestCase):
         
         Returns the response object.
         """
-        response = self.client.post('/rsvp/stage2', { 'email': self.guest.email })
+        response = self.client.post('/rsvp/stage2', { 'email': self.group.email })
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'guests/stage2.html')
-        self.assertEquals(response.context[0]['guest'], self.guest)
-        self.assertContains(response, ('Hi %s!' % self.guest.first_name), 1)
+        self.assertEquals(response.context[0]['group'], self.group)
+        self.assertContains(response, ('Hi %s!' % self.group.name), 1)
+        
         return response
         
     def testIndex(self):
@@ -36,13 +38,13 @@ class RsvpTest(TestCase):
         self.assertEmailWasInvalid(response)
     
     def testStage2WithValidEmailAndGuestInvitedToMeal(self):
-        self.loadGuest(1)
+        self.loadGroup(1)
         
         response = self.assertStage2Succeeded()        
-        self.assertContains(response, 'Meal', 1)
+        self.assertContains(response, 'Meal', 2)
     
     def testStage2WithValidEmailAndGuestNotInvitedToMeal(self):
-        self.loadGuest(2)
+        self.loadGroup(2)
         
         response = self.assertStage2Succeeded()
         self.assertNotContains(response, 'Meal')
@@ -52,13 +54,23 @@ class RsvpTest(TestCase):
         self.assertEmailWasInvalid(response)
         
     def testSaveWithValidEmail(self):
-        self.loadGuest(1)
-        response = self.client.post('/rsvp/save', { 'email': self.guest.email, 'ceremony': '1', 'meal': '0', 'reception': '1' })
+        self.loadGroup(1)
+        response = self.client.post('/rsvp/save', { 'email': self.group.email, 
+                                                    '1_ceremony': '1', '1_meal': '0', '1_reception': '1',
+                                                    '2_ceremony': '0', '2_meal': '0', '2_reception': '1' })
         
         # Reload the guest to get current state
-        self.loadGuest(1)
+        self.loadGroup(1)
         
         self.assertRedirects(response, '/rsvp/confirmed')
-        self.assertEquals(self.guest.attending_ceremony, True)
-        self.assertEquals(self.guest.attending_meal, False)
-        self.assertEquals(self.guest.attending_reception, True)
+        guests = self.group.guest_set.all()
+        
+        self.assertEquals(self.group.rsvp_received, True)
+        
+        self.assertEquals(guests[0].attending_ceremony, True)
+        self.assertEquals(guests[0].attending_meal, False)
+        self.assertEquals(guests[0].attending_reception, True)
+        
+        self.assertEquals(guests[1].attending_ceremony, False)
+        self.assertEquals(guests[1].attending_meal, False)
+        self.assertEquals(guests[1].attending_reception, True)

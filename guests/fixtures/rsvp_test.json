@@ -1,45 +1,85 @@
 [
     {
-        "model": "guests.guestgroup",
+        "model": "guests.category",
         "pk": 1,
-        "fields": { "name": "Wedding Party" }
+        "fields": {
+            "name": "The Wedding Party"
+        }
     },
     
-	{
-		"model": "guests.guest",
-		"pk": 1,
-		"fields": {
-			"first_name": "Jon",
-			"last_name": "Wood",
-			"email": "jon@blankpad.net",
-			"phone": "",
-			"address": "",
-			"invite_to_meal": true,
-			"save_the_date_sent": true,
-			"invite_sent": true,
-			"attending_ceremony": null,
-			"attending_meal": null,
-			"attending_reception": null,
-			"group": 1
-		}
-	},
-	
-	{
-	    "model": "guests.guest",
-	    "pk": 2,
-	    "fields": {
-	        "first_name": "Bob",
-	        "last_name": "Hoskins",
-	        "email": "bob@example.org",
-	        "phone": "",
-	        "address": "",
-	        "invite_to_meal": false,
-	        "save_the_date_sent": true,
-	        "invite_sent": true,
-	        "attending_ceremony": null,
-	        "attending_meal": null,
-	        "attending_reception": null,
-	        "group": 1
-	    }
-	}
+    {
+        "model": "guests.group",
+        "pk": 1,
+        "fields": {
+            "name": "Jon and Laura",
+            "email": "jon@blankpad.net",
+            "invite_sent": true,
+            "invite_to_meal": true,
+            "save_the_date_sent": true,
+            "rsvp_received": false,
+            "category": 1
+        }
+    },
+    
+    {
+        "model": "guests.guest",
+        "pk": 1,
+        "fields": {
+            "first_name": "Jon",
+            "last_name": "Wood",
+            "group": 1
+        }
+    },
+    
+    {
+        "model": "guests.guest",
+        "pk": 2,
+        "fields": {
+            "first_name": "Laura",
+            "last_name": "Richmond",
+            "group": 1
+        }
+    },
+    
+    {
+        "model": "guests.category",
+        "pk": 2,
+        "fields": {
+            "name": "Third Choice People"
+        }
+    },
+    
+    {
+        "model": "guests.group",
+        "pk": 2,
+        "fields": {
+            "name": "Smelltons",
+            "email": "smelly@example.org",
+            "invite_sent": true,
+            "invite_to_meal": false,
+            "save_the_date_sent": true,
+            "rsvp_received": false,
+            "category": 2
+        }
+    },
+    
+    {
+        "model": "guests.guest",
+        "pk": 3,
+        "fields": {
+            "first_name": "Bob",
+            "last_name": "Smellton",
+            "group": 2
+        }
+    },
+    
+    {
+        "model": "guests.guest",
+        "pk": 4,
+        "fields": {
+            "first_name": "Clare",
+            "last_name": "Smellton",
+            "group": 2
+        }
+    }
 ]
