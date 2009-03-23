@@ -26,7 +26,10 @@ class Group(models.Model):
     
     def __unicode__(self):
         return self.name
-        
+  
+    class Meta:
+      ordering = ['name']
+
 class Category(models.Model):
     """A category of guests, such as 'Wedding Party', or 'Jon's Friends'."""
     name = models.CharField(max_length=40)

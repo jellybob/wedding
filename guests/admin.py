@@ -16,7 +16,7 @@ class GroupAdmin(admin.ModelAdmin):
     
     list_display = ('name', 'email', 'category', 'invite_to_meal', 'save_the_date_sent', 'invite_sent', 'rsvp_received')
     list_filter = ('category', 'invite_to_meal', 'save_the_date_sent', 'invite_sent', 'rsvp_received')
-    search_fields = ['first_name', 'last_name', 'email', 'phone', 'address']
+    search_fields = ['name', 'email', 'phone', 'address']
 admin.site.register(Group, GroupAdmin)
 
 class CategoryAdmin(admin.ModelAdmin):
