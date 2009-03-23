@@ -1,6 +1,6 @@
 # coding=utf-8
 from django.test import TestCase
-from wedding.gifts.models import Gift
+from wedding.gifts.models import Gift, Category
 
 class GiftModelsTest(TestCase):
     def testPriceConversionToPoundsAndPenceWithEmptyPrice(self):
@@ -24,7 +24,7 @@ class GiftViewsTest(TestCase):
     
     def testIndex(self):
         response = self.client.get('/gifts/')
-        gift = Gift.objects.get(pk=1)
+        category = Category.objects.get(pk=1)
         
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'gifts/index.html')
