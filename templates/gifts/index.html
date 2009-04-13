@@ -5,12 +5,16 @@
 
 {% block content %}
 	<h2>Gift List</h2>
-	<p>This is our gift list. If you see something you might like to buy for us, then you can click on it's name to
-	   be taken to the site which is selling it. If you still like what you see click the "Reserve" button. Items
-	   shown in grey have already been reserved.</p>
-	<p>We get a small commission for anything you buy from Amazon through this list (maybe even enough to buy a meal out
-	   while we're on honeymoon!) if that's a problem for you, give us a shout, and we'll tell you how to avoid it.</p>
-	<p>And finally, don't feel obliged to get anything. We'll still love you if you don't!</p>
+	<p>You'd like to buy us a gift? Thank you very much! If you see something you might like to buy for us on this page,
+		 then click on its name to be taken to the site which is selling it. Or, if you don't like online shopping, you can
+		 scurry away to a real shop, and get one similar.</p>
+	<p>If you've decided to buy us an item from the list, please click the "Reserve" button. That way we won't end up with
+		 150 toasters! Of course, some things, like picture frames and candles, it's nice to have several of anyway, so don't
+		 worry too much if those are reserved.</p>
+	<p>We get a small commission for anything you buy from Amazon through this list (maybe even enough to buy a meal out while
+		 we're on honeymoon!) If that's a problem for you, give us a shout, and we'll tell you how to avoid it, or you can get
+		 the present elsewhere.</p>
+	<p>Finally, please don't feel obliged to get us anything. Showing up is a gift in itself.</p>
 	
 	{% for category in categories %}
 		<h3>{{ category.name }}</h3>
