@@ -26,7 +26,17 @@ class Group(models.Model):
     
     def __unicode__(self):
         return self.name
-  
+    
+    def name_list(self):
+      names = [] 
+      for guest in self.guest_set.all():
+        names += [guest.first_name]
+      
+      if (len(names)):
+        return ", ".join(names[0:-1]) + " and " + names[-1]
+      else:
+        return names[0]
+
     class Meta:
       ordering = ['name']
 
