@@ -5,7 +5,7 @@ from django.template.loader import render_to_string
 
 class Command(BaseCommand):
   def handle(self, *args, **options):
-    groups = Group.objects.all()
+    groups = Group.objects.filter(invite_sent=False)
     self.counts = {
       'total': groups.count(),
       'sent': 0,
@@ -35,6 +35,8 @@ class Command(BaseCommand):
         email.attach_alternative(html_body, 'text/html')
         try:
           email.send()
+          group.invite_sent = True
+          group.save()
           self.log_message(group, True)
         except Exception, e:
           self.log_message(group, False)
@@ -42,7 +44,7 @@ class Command(BaseCommand):
           
       else:
         print "No e-mail address. Skipping."
-        skipped += 1
+        self.counts['skipped'] += 1
 
     print "Sent: %d\nFailed: %d\nSkipped: %d" % ( self.counts['sent'], 
                                                   self.counts['failed'], 
