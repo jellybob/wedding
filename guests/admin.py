@@ -19,6 +19,11 @@ class GroupAdmin(admin.ModelAdmin):
     search_fields = ['name', 'email', 'phone', 'address']
 admin.site.register(Group, GroupAdmin)
 
+class GuestAdmin(admin.ModelAdmin):
+    list_display  = ('first_name', 'last_name', 'group', 'attending_ceremony', 'attending_meal', 'attending_reception')
+    list_filter = ('attending_ceremony', 'attending_meal', 'attending_reception')
+admin.site.register(Guest, GuestAdmin)
+
 class CategoryAdmin(admin.ModelAdmin):
     pass
 admin.site.register(Category, CategoryAdmin)
