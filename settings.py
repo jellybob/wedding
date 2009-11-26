@@ -15,12 +15,10 @@ DATABASE_PASSWORD = ''         # Not used with sqlite3.
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
-# You'll need to provide at least a username and password,
-# and possibly change the host.
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'wedding@blankpad.net'
+EMAIL_HOST_PASSWORD = 'marriagespam'
 EMAIL_PORT = 587
 
 # Local time zone for this installation. Choices can be found here:
